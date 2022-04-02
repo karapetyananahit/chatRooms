@@ -1,6 +1,8 @@
 <?php
 
 use App\Events\WebsocketEvent;
+use App\Http\Controllers\ChatsController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +21,15 @@ Route::get('/', function () {
     broadcast(new WebsocketEvent('some data'));
     return view('welcome');
 });
+
+Route::get('/chats',[ChatsController::class,"index"]);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/messages',[ChatsController::class,"fetchMessages"]);
+
+
+Route::post('/messages',[ChatsController::class,"sendMessage"]);
