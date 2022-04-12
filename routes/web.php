@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\WebsocketEvent;
+use App\Http\Controllers\ChatRoomController;
 use App\Http\Controllers\ChatsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,9 @@ Route::get('/messages',[ChatsController::class,"fetchMessages"]);
 
 
 Route::post('/messages',[ChatsController::class,"sendMessage"]);
+
+Route::get('/rooms',[ChatRoomController::class,"index"]);
+
+Route::post('get-roomsdata',[ChatRoomController::class,"fetchRoomData"]);
+
+
