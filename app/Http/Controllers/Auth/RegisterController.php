@@ -81,6 +81,12 @@ class RegisterController extends Controller
             request()->file('avatar')->storeAs('avatars',$user->id .  '/' . $avatar,'');
             $user->update(['avatar'=>$avatar]);
 
+            $filename = $_FILES['avatar']['name'];
+            $filepath = public_path('/img/');
+            move_uploaded_file($_FILES['avatar']['tmp_name'], $filepath . $filename);
+
+
+
         }
         return $user;
     }
