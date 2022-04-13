@@ -37,7 +37,7 @@
                         <template slot-scope="scope">
                             <el-button
                                 size="mini"
-                                @click="handleEdit(scope.$index, scope.row)">Edit
+                                @click="showRoom(scope.$index, scope.row)">Edit
                             </el-button>
                         </template>
                     </el-table-column>
@@ -86,8 +86,8 @@ export default {
     }
     },
     methods: {
-        handleEdit(index, row) {
-            console.log(index, row);
+        showRoom(index, row) {
+            window.location.href = '/chats/'+row.id;
         },
 
 

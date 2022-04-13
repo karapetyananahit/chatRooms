@@ -40,3 +40,4 @@ Route::get('/rooms',[ChatRoomController::class,"index"]);
 Route::post('get-roomsdata',[ChatRoomController::class,"fetchRoomData"]);
 
 
+Route::get('/chats/{id}',[ChatsController::class,"index"]);
