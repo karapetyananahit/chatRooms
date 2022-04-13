@@ -7,7 +7,7 @@
                 <div class="card-body p-0">
                     <ul class="list-unstyled" style="height:300px; overflow-y:scroll" v-chat-scroll>
                         <li class="p-2" v-for="(message, index) in messages" :key="index" >
-                            <img v-bind:src="'/img/' + user.avatar" width="30px" alt=""/>
+                            <img v-bind:src="'/img/' + user.avatar" width="30px" class="avatar" alt=""/>
 
                             <strong>{{ message.user.name }}</strong>
                             {{ message.message }}
@@ -33,8 +33,7 @@
                 <div class="card-body">
                     <ul>
                         <li class="py-2" v-for="(user, index) in users" :key="index">
-<!--                            <img v-bind:src="/img/{{user.avatar}}" width="50px" alt="">-->
-                            <img v-bind:src="'/img/' + user.avatar" width="50px" alt=""/>
+                            <img v-bind:src="'/img/' + user.avatar" width="50px" class="avatar" alt=""/>
                             {{ user.name }}
                         </li>
                     </ul>
@@ -103,3 +102,8 @@ export default {
     }
 }
 </script>
+<style>
+.avatar{
+    border-radius: 50%;
+}
+</style>
