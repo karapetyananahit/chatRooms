@@ -30,10 +30,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/messages',[ChatsController::class,"fetchMessages"]);
+Route::get('/messages/{id}',[ChatsController::class,"fetchMessages"]);
 
 
-Route::post('/messages',[ChatsController::class,"sendMessage"]);
+Route::post('/messages/{id}',[ChatsController::class,"sendMessage"]);
 
 Route::get('/rooms',[ChatRoomController::class,"index"]);
 

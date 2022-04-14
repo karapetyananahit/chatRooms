@@ -7,7 +7,7 @@
                 <div class="card-body p-0">
                     <ul class="list-unstyled" style="height:300px; overflow-y:scroll" v-chat-scroll>
                         <li class="p-2" v-for="(message, index) in messages" :key="index" >
-                            <img v-bind:src="'/img/' + user.avatar" width="30px" class="avatar" alt=""/>
+                            <img v-bind:src="'/img/' + message.user.avatar" width="30px" class="avatar" alt=""/>
 
                             <strong>{{ message.user.name }}</strong>
                             {{ message.message }}
@@ -46,7 +46,7 @@
 
 <script>
 export default {
-    props:['user'],
+    props:['user', 'id'],
     data() {
         return {
             messages: [],
@@ -83,16 +83,18 @@ export default {
     },
     methods: {
         fetchMessages() {
-            axios.get('messages').then(response => {
+            axios.get(`/messages/${this.id}`).then(response => {
                 this.messages = response.data;
             })
+            console.log(11)
         },
         sendMessage() {
+            console.log(this.id)
             this.messages.push({
                 user: this.user,
                 message: this.newMessage
             });
-            axios.post('messages', {message: this.newMessage});
+            axios.post(`/messages/${this.id}`, {message: this.newMessage});
             this.newMessage = '';
         },
         sendTypingEvent() {
