@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class ChatRoomController extends Controller
 {
-    public function index()
-    {
-        return view('rooms');
-    }
+//    public function index()
+//    {
+//        return view('chats');
+//    }
 
     public function fetchRoomData()
     {

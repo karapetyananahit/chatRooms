@@ -37,7 +37,7 @@
                         <template slot-scope="scope">
                             <el-button
                                 size="mini"
-                                @click="showRoom(scope.$index, scope.row)">Edit
+                                @click="showRoom(scope.$index, scope.row)">OPEN
                             </el-button>
                         </template>
                     </el-table-column>
